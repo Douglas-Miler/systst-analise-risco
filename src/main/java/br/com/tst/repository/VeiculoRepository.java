@@ -1,36 +1,16 @@
 package br.com.tst.repository;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import br.com.tst.domain.Veiculo;
 
-@Component
-public class VeiculoRepository{
+public interface VeiculoRepository extends JpaRepository<Veiculo, Long>{
 	
-	@Autowired 
-	private VeiculoTable table;
-	
-	public Veiculo save ( Veiculo veiculo ) {
-		VeiculoTable.getInstance().getRecords().add( veiculo );
-		int i = VeiculoTable.getInstance().getRecords().indexOf( veiculo );
-		Long id = Long.parseLong( String.valueOf( i ) );
-		veiculo.setId(id);
-		return veiculo; 
-		
-	}
-
-	public void delete ( Veiculo veiculo ) {
-	}
-
-	public Veiculo update ( Veiculo veiculo ) {
-		return null;
-	}
-	
-	public List<Veiculo> findAll ( ) {
-		return VeiculoTable.getInstance().getRecords();
-	}
+	@Query("FROM Veiculo v where v.risco.id = risco_id")
+	public Page<Veiculo> findByRisco(@Param("risco_id") Long riscoId, Pageable pageable);
 	
 }
