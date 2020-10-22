@@ -5,22 +5,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
-import { FormComponent } from './form/form.component';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 @NgModule({
   declarations: [
-    FormComponent
+    CreateFormComponent
   ],
   imports: [
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
   ],
   exports: [
-    FormComponent
+    CreateFormComponent
   ]
 })
-export class FormModule { }
+export class CreateFormModule { }

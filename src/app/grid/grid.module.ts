@@ -4,7 +4,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import { GridComponent } from './grid/grid.component';
 import { TableModule } from './../table/table.module';
-import { FormModule } from './../form/form.module';
+import { CreateFormModule } from '../create-form/create-form.module';
 
 @NgModule({
   declarations: [GridComponent],
@@ -12,7 +12,7 @@ import { FormModule } from './../form/form.module';
     CommonModule,
     MatGridListModule,
     TableModule,
-    FormModule
+    CreateFormModule
   ],
   exports: [
     GridComponent

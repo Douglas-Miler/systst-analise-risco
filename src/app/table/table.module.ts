@@ -8,6 +8,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { SelectDropDownModule } from 'ngx-select-dropdown'
 
@@ -29,7 +30,8 @@ import { SearchComponent } from './search/search.component';
     MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SelectDropDownModule
+    SelectDropDownModule,
+    MatDividerModule
   ],
   exports: [
     TableComponent
