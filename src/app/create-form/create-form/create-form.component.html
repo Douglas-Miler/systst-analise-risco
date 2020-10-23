@@ -1,62 +1,71 @@
-<div>
-    <h2>CADASTRO</h2>
-    <mat-divider></mat-divider>
+<div id="create-form">
+    <div>
+        <h2>CADASTRO</h2>
+        <mat-divider></mat-divider>
+    </div>
+    <form style="margin-top: 20px;" [formGroup]="createForm" (submit)="create()">
+        <mat-form-field class="field">
+            <mat-label>Marca</mat-label>
+            <input
+                #marca
+                cdkFocusInitial
+                matInput
+                formControlName="marca"
+                type="text"/>
+                <mat-error *ngIf="createForm.get('marca').errors?.required">
+                    Marca é <strong>obrigatória</strong>
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Modelo</mat-label>
+            <input
+                #modelo
+                cdkFocusInitial
+                matInput
+                formControlName="modelo"
+                type="text"/>
+                <mat-error *ngIf="createForm.get('modelo').errors?.required">
+                    Modelo é <strong>obrigatório</strong>
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Ano</mat-label>
+            <input
+                #ano
+                cdkFocusInitial
+                matInput
+                formControlName="ano"
+                type="number"/>
+                <mat-error *ngIf="createForm.get('ano').errors?.required">
+                    Ano é <strong>obrigatório</strong>
+                </mat-error>
+                <mat-error *ngIf="createForm.get('ano').errors?.pattern || createForm.get('ano').errors?.maxlength">
+                    Insira um ano entre 1886 e 2030
+                </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Valor R$</mat-label>
+            <input
+                #valor
+                currencyMask 
+                cdkFocusInitial
+                matInput
+                formControlName="valor"
+                type="text"
+                min="1000"
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false}"/>
+                <mat-error *ngIf="createForm.get('valor').errors?.required">
+                    Valor é <strong>obrigatório</strong>
+                </mat-error>
+        </mat-form-field>
+        <br>
+        <small>
+            *Valor deve partir de <strong>R$ 1.000,00</strong>
+        </small>
+        <br>
+        <button style="margin-top: 20px;" mat-raised-button [disabled]="createForm.invalid">Cadastrar</button>
+    </form>
 </div>
-<form style="margin-top: 20px;" [formGroup]="createForm" (submit)="create()">
-    <mat-form-field class="field">
-        <mat-label>Marca</mat-label>
-        <input
-            #marca
-            cdkFocusInitial
-            matInput
-            formControlName="marca"
-            type="text"/>
-            <mat-error *ngIf="createForm.get('marca').errors?.required">
-                Marca é <strong>obrigatória</strong>
-            </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="field">
-        <mat-label>Modelo</mat-label>
-        <input
-            #modelo
-            cdkFocusInitial
-            matInput
-            formControlName="modelo"
-            type="text"/>
-            <mat-error *ngIf="createForm.get('modelo').errors?.required">
-                Modelo é <strong>obrigatório</strong>
-            </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="field">
-        <mat-label>Ano</mat-label>
-        <input
-            #ano
-            cdkFocusInitial
-            matInput
-            formControlName="ano"
-            type="text"/>
-            <mat-error *ngIf="createForm.get('ano').errors?.required">
-                Ano é <strong>obrigatório</strong>
-            </mat-error>
-            <mat-error *ngIf="createForm.get('ano').errors?.pattern || createForm.get('ano').errors?.maxlength">
-                Insira um ano entre 1886 e 2030
-            </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="field">
-        <mat-label>Valor R$</mat-label>
-        <input
-            #valor
-            cdkFocusInitial
-            matInput
-            formControlName="valor"
-            type="text"/>
-            <mat-error *ngIf="createForm.get('valor').errors?.required">
-                Valor é <strong>obrigatório</strong>
-            </mat-error>
-    </mat-form-field>
-    <br>
-    <button style="margin-top: 20px;" mat-raised-button [disabled]="createForm.invalid">Cadastrar</button>
-</form>

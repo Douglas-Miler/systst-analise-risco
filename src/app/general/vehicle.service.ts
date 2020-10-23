@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpBackend } from '@angular/common/http';
 
+import { Vehicle } from './vehicle';
+
 @Injectable({
     providedIn: 'root'
 })
-export class SearchService {
+export class VehicleService {
 
     private http: HttpClient;
 
@@ -18,6 +20,10 @@ export class SearchService {
 
     getAllVehicles(){
         return this.http.get('http://localhost:8080/sin/systst-analise-risco/rest/veiculo');
+    }
+
+    saveVehicle(vehicle: Vehicle){
+        return this.http.post('http://localhost:8080/sin/systst-analise-risco/rest/veiculo', vehicle);
     }
 
 }

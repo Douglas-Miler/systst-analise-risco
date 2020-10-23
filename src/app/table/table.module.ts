@@ -1,12 +1,8 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
@@ -24,11 +20,7 @@ import { SearchComponent } from './search/search.component';
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    BrowserAnimationsModule,
     MatButtonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     SelectDropDownModule,
     MatDividerModule

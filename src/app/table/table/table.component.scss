@@ -1,9 +1,21 @@
 .table-container {
-    height: 250px;
-    overflow: auto;
-    width: 800px;
+  height: 250px;
+  overflow: auto;
+  width: 800px;
+}
+
+table {
+  width: 100%;
+}
+
+@media(max-width: 992px){
+  .table-container {
+    width: 700px;
   }
-  
-  table {
-    width: 800px;
+}
+
+@media(max-width: 768px){
+  .table-container {
+    width: 500px;
   }
+}

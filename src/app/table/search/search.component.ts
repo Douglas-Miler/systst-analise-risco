@@ -1,7 +1,8 @@
-import { SearchService } from './../search-service/search.service';
-import { Veiculo } from './../search-service/veiculo';
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { VehicleService } from '../../general/vehicle.service';
+import { Vehicle } from '../../general/vehicle';
 
 @Component({
   selector: 'app-search',
@@ -10,13 +11,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  veiculos: Veiculo[] = [];
+  veiculos: Vehicle[] = [];
   dropdownOptions = [{id: 1, description: 'Alto'}, {id: 2, description: 'Médio'}, {id: 3, description: 'Baixo'}]
   searchForm: FormGroup;
   @ViewChild('select') select: ElementRef<HTMLSelectElement>;
   @Output() onSubmit = new EventEmitter<any>();
 
-  constructor(private searchService: SearchService, private formBuilder: FormBuilder) { }
+  constructor(private searchService: VehicleService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({

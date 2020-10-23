@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { VeiculoResolver } from './table/search-service/veiculo-resolver';
+import { VehicleResolver } from './general/vehicle-resolver';
 import { GridComponent } from './grid/grid/grid.component';
 
 const routes: Routes = [
@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: GridComponent,
     resolve: {
-      response: VeiculoResolver
+      response: VehicleResolver
     }
   }
 ];

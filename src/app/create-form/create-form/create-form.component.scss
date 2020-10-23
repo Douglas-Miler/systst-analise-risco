@@ -1,3 +1,19 @@
 .field{
     margin-left: 20px;
 }
+
+#create-form{
+    width: 800px;
+}
+
+@media(max-width: 992px){
+    #create-form {
+        width: 700px;
+    }
+}
+
+    @media(max-width: 768px){
+    #create-form {
+        width: 500px;
+    }
+}

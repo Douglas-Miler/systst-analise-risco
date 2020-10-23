@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { CurrencyMaskModule } from "ng2-currency-mask";
+
 import { CreateFormComponent } from './create-form/create-form.component';
 
 @NgModule({
@@ -19,7 +21,8 @@ import { CreateFormComponent } from './create-form/create-form.component';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatDividerModule
+    MatDividerModule,
+    CurrencyMaskModule
   ],
   exports: [
     CreateFormComponent

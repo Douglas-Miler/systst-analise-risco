@@ -1,9 +1,9 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, AfterViewInit, ViewChild, Input, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Input, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Veiculo } from './../search-service/veiculo';
+import { Vehicle } from '../../general/vehicle';
 
 @Component({
   selector: 'app-table',
@@ -13,7 +13,7 @@ import { Veiculo } from './../search-service/veiculo';
 export class TableComponent implements OnInit, AfterViewInit {
 
   displayedColumns = ['id', 'marca', 'modelo', 'ano', 'valor', 'risco'];
-  @Input() dataSource: MatTableDataSource<Veiculo[]>;
+  @Input() dataSource: MatTableDataSource<Vehicle[]>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -24,7 +24,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Veiculo[]>(this.activatedRoute.snapshot.data['response'].content);
+    this.dataSource = new MatTableDataSource<Vehicle[]>(this.activatedRoute.snapshot.data['response'].content);
   }
 
   formatDate(ano: number[]){
@@ -37,7 +37,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   setDataSource(veiculos: any){
-    this.dataSource = new MatTableDataSource<Veiculo[]>(veiculos);
+    this.dataSource = new MatTableDataSource<Vehicle[]>(veiculos);
     this.dataSource.paginator = this.paginator;
   }
 }
